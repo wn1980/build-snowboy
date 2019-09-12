@@ -4,5 +4,6 @@ services:
 
   snowboy:
     build: .
+    image: wn1980/build-snowboy:rpi
     volumes:
-      - "./Python3:/data:rw"
+      - "./build:/build:rw"

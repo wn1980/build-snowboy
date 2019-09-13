@@ -4,7 +4,7 @@
 # compile into local /tmp/snowboy
 # docker run -it --rm -v "build:/build" wn1980/build-snowboy bash
 
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 RUN apt-get update
 RUN apt-get install -y \

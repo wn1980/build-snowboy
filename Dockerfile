@@ -27,14 +27,4 @@ RUN cd swig-3.0.12 && \
     install -v -m755 -d /usr/share/doc/swig-3.0.12 && \
     cp -v -R Doc/* /usr/share/doc/swig-3.0.12
 
-RUN git clone https://github.com/kitt-ai/snowboy -b 1.2.0
-
-COPY ./Makefile /snowboy/swig/Python3/
-
-RUN cd /snowboy/swig/Python3 && make
-RUN cd /snowboy/swig/Python3 && python3 -c "import _snowboydetect; print('OK')"
-
-RUN export ARCH=$(uname -m) && export VERSION=$(grep -oP '(?<=^VERSION_ID=).+' /etc/os-release | tr -d '"')
-ENV output=/build/Python3/${VERSION}-${ARCH}
-RUN mkdir -p $output
-RUN cp /snowboy/swig/Python3/* $output
+RUN mkdir -p src

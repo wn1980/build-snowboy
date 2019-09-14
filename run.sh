@@ -29,4 +29,6 @@ docker system prune -f
 
 docker run -it --rm --name $NAME \
 	-v "$(pwd)/src:/src:rw" \
+	-v "/dev:/dev" \
+	--privileged \
 	wn1980/build-snowboy${tag} bash

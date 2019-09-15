@@ -4,7 +4,4 @@ services:
 
   snowboy:
     build: .
-    image: wn1980/build-snowboy:rpi
-    volumes:
-      - "./src:/src:rw"
-    command: bash
+    image: wn1980/build-snowboy

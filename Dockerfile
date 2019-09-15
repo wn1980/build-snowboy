@@ -32,4 +32,5 @@ RUN cd swig-3.0.12 && \
     install -v -m755 -d /usr/share/doc/swig-3.0.12 && \
     cp -v -R Doc/* /usr/share/doc/swig-3.0.12
 
-RUN mkdir -p src
+RUN mkdir -p workspace
+WORKDIR /workspace

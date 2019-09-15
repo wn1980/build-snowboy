@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+cd /worspace
+
 rm -rf snowboy
 
 git clone https://github.com/kitt-ai/snowboy

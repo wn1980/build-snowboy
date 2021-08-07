@@ -6,31 +6,40 @@
 
 FROM ubuntu:18.04
 
-RUN apt-get update
+RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y \
-	git vim wget \
-	make g++ gfortran libtool \
+	git \
+	nano \
+	wget \
+	make \
+	g++ \
+	gfortran \
+	libtool \
 	python3-dev \
 	python3-pip \
 	portaudio19-dev \
 	alsa-utils \
-	libatlas3-base libatlas-base-dev libblas-dev \
+	libatlas3-base \
+	libatlas-base-dev \
+	libblas-dev \
 	libpcre3-dev \
 	libdpkg-perl
 
 RUN pip3 install pyaudio
 
-RUN wget https://downloads.sourceforge.net/swig/swig-3.0.12.tar.gz && tar xzf swig-3.0.12.tar.gz
-RUN cd swig-3.0.12 && \
+#ENV VERSION=3.0.12
+ENV VERSION=4.0.2
+RUN wget https://downloads.sourceforge.net/swig/swig-$VERSION.tar.gz && tar xzf swig-$VERSION.tar.gz
+RUN cd swig-$VERSION && \
     ./configure --prefix=/usr \
     --without-clisp  \
     --without-maximum-compile-warnings && \
     make
 
-RUN cd swig-3.0.12 && \
+RUN cd swig-$VERSION && \
     make install && \
-    install -v -m755 -d /usr/share/doc/swig-3.0.12 && \
-    cp -v -R Doc/* /usr/share/doc/swig-3.0.12
+    install -v -m755 -d /usr/share/doc/swig-$VERSION && \
+    cp -v -R Doc/* /usr/share/doc/swig-$VERSION
 
 RUN mkdir -p workspace
 WORKDIR /workspace

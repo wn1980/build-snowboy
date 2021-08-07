@@ -3,3 +3,5 @@
 /workspace/examples/amd64/__pycache__/snowboydecoder.cpython-36.pyc
 /workspace/examples/amd64/snowboydetect/__pycache__/__init__.cpython-36.pyc
 /workspace/examples/amd64/snowboydetect/__pycache__/snowboydetect.cpython-36.pyc
+.env
+asoundrc.txt

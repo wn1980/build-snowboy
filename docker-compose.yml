@@ -4,4 +4,12 @@ services:
 
   snowboy:
     build: .
-    image: wn1980/build-snowboy
+    image: wn1980/build-snowboy${TAG}
+    command: tail -f /dev/null
+    privileged: true
+    devices:
+      - "/dev/snd:/dev/snd"
+    volumes:
+      - "/dev/snd:/dev/snd"
+      - "./asoundrc.txt:/root/.asoundrc:rw"
+      - "./workspace:/workspace"

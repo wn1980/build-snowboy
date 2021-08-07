@@ -8,7 +8,7 @@ python3 -c "import _snowboydetect; print('OK')"
 cd /workspace
 
 export ARCH=$(uname -m) && export VERSION=$(grep -oP '(?<=^VERSION_ID=).+' /etc/os-release | tr -d '"')
-export output=build/Python3/${VERSION}-${ARCH}
+export output=build/Python3/${VERSION}-${ARCH}-`date +%d%m%y`
 
 rm -rf $output
 mkdir -p $output

@@ -5,6 +5,7 @@ services:
   snowboy:
     build: .
     image: wn1980/build-snowboy${TAG}
+    container_name: snowboy
     command: tail -f /dev/null
     privileged: true
     devices:

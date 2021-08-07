@@ -12,4 +12,4 @@ services:
     volumes:
       - "/dev/snd:/dev/snd"
       - "./asoundrc.txt:/root/.asoundrc:rw"
-      - "./workspace:/workspace"
+      - "./workspace:/workspace:rw"

@@ -4,10 +4,21 @@
 # compile into local /tmp/snowboy
 # docker run -it --rm -v "$(pwd)/src:/src" wn1980/build-snowboy bash
 
-FROM ubuntu:18.04
+FROM ubuntu
+
+LABEL maintainer="Waipot Ngamsaad <waipotn@hotmail.com>"
+
+SHELL ["/bin/bash", "-c"]
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN  apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+
+RUN sed -i -e 's/http:\/\/archive/mirror:\/\/mirrors/' -e 's/http:\/\/security/mirror:\/\/mirrors/' -e 's/\/ubuntu\//\/mirrors.txt/' /etc/apt/sources.list
 
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y \
+	ca-certificates \
 	git \
 	nano \
 	wget \
